@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block body %}
+
+    <form action="/wiki/{{name}}" method="post">
+        {% csrf_token %}
+        <textarea name="content">{{ entry | safe }}</textarea>
+        <br>
+        <input type="submit" name="Save" value="Save">
+    </form>
+    
+{% endblock %}

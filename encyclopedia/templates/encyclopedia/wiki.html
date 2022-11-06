@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ name}}
+{% endblock %}
+
+{% block body %}
+
+    {{ entry | safe}}
+
+    {% csrf_token %}
+
+    {% if error %}
+    {% else %}
+    <a href = "/edit/{{title}}">Edit {{ title }} entry</a>
+    {% endif %}
+    
+{% endblock %}
